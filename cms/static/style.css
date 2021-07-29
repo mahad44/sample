@@ -1,0 +1,35 @@
+label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form-control{
+    width: 50%;
+}
+
+.custom-select{
+    width: 50%;
+}
+
+header{
+    background-color: rgb(218, 212, 212);
+    margin: 0%;
+    height: 100px;
+    padding:25px;
+
+}
+.radio-inline{
+    font-weight:normal;
+}
+
+.container{
+    margin-left: 30%;
+}
+
+footer{
+    margin-left:0px;
+    position:fixed;
+    bottom: 0px;
+}
+
+

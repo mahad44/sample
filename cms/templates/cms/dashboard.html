@@ -1,0 +1,269 @@
+{% load static %}
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'style2.css' %}">
+      <script src="https://cdn.anychart.com/releases/v8/js/anychart-core.min.js"></script>
+      <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-base.min.js" type="text/javascript"></script>
+      <script src="https://cdn.anychart.com/releases/v8/js/anychart-cartesian.min.js"></script>
+      <meta content="initial-scale=1, maximum-scale=1,
+        user-scalable=0" name="viewport" />
+    <meta name="viewport" content="width=device-width" />
+  
+    <!-- Datatable plugin CSS file -->
+    <link rel="stylesheet" href=
+"https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+  
+     <!-- jQuery library file -->
+     <script type="text/javascript" 
+     src="https://code.jquery.com/jquery-3.5.1.js">
+     </script>
+  
+      <!-- Datatable plugin JS library file -->
+     <script type="text/javascript" src=
+"https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
+     </script>
+
+
+      <script>
+ 
+        anychart.onDocumentLoad(function () {
+          // create an instance of a pie chart
+          var chart = anychart.pie();
+          // set the data
+          chart.data([
+            ["North America", 1],
+            ["South America", 1],
+            ["Europe", 2],
+            ["Africa", 2],
+            ["Middle East", 1]
+          ]);
+          // set chart title
+          chart.title("Region Stats");
+          chart.height('600px');
+          chart.width('800px');
+          chart.margin('15%');
+          // set the container element 
+          chart.container("container2");
+          // initiate chart display
+          chart.draw();
+        });
+
+      </script>
+   </head>
+<body>
+   <header><h1 style="text-align:center;">Client Management System</h1> </header>
+   
+   
+   <nav style="margin:0%;" class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+         
+        </ul>
+      </div>
+   </nav>
+<br>
+
+{% if user.is_authenticated %}
+
+<div class="container" >
+    <div class="row">
+    <div class="col-sm-12 justify-content-center">
+        
+            <table id="tableID" class="display" style="width:100%; ">
+              <thead>
+                    <tr>
+                       <!-- <th><input type="text" class="form-control" placeholder="Project Name" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="SOD" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Modules" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Cost" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Region" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="StartDate" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="EndDate" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Representative" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Email" disabled></th> -->
+                        <th>StudentID</th>
+                        <th>StudentName</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Marks Scored</th>
+                        <th>Marks Scored2</th>
+                        <th>Marks Scored3</th>
+                        <th>Marks Scored4</th>
+                        <th>Marks Scored5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    </tr>
+        {% for project in all_projects %}
+        <tr>
+             <td>{{project.projectname}}</td>
+            <td>{{project.sod}}</td>
+            <td>{{project.modules}}</td>
+            <td>{{project.cost}}</td>
+            <td>{{project.region}}</td>
+            <td>{{project.startdate}}</td>
+            <td>{{project.enddate}}</td>
+            <td>{{project.name}}</td>
+            <td>{{project.email}}</td>
+        </tr>
+        {% endfor %}
+                </tbody>
+            </table>
+            <script>
+  
+              /* Initialization of datatable */
+              $(document).ready(function() {
+                  $('#tableID').DataTable({ });
+              });
+          </script>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Export
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'csv_export' %}">Export csv</a>
+              <a class="dropdown-item" href="{% url 'excel_export' %}">Export excel</a>
+            </div>
+          </div>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <h3 style="color: gray;">Summary</h3>
+    <br>
+</div>
+<div class="row">
+    <div class="col-sm-4 justify-content-center">
+     <h5>Total Projects: {{total_projects}}</h5>
+    </div>
+    <div class="col-sm-4 justify-content-center">
+        <h5>Total Cost: {{cost}}</h5>
+    </div>
+    <div class="col-sm-4 justify-content-center">
+        <h5>Avg. Cost/Project: {{avg}}</h5>
+    </div>
+</div>
+
+</div>  
+
+</div>
+{% else %}
+<h1>You are not authorized to enter this page kindly login with credentials
+    <a href="{% url 'login' %}">Login page</a>
+</h1>
+{% endif %} 
+
+
+
+
+   
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+ <script>
+    $(document).ready(function(){
+    $('.filterable .btn-filter').click(function(){
+        var $panel = $(this).parents('.filterable'),
+        $filters = $panel.find('.filters input'),
+        $tbody = $panel.find('.table tbody');
+        if ($filters.prop('disabled') == true) {
+            $filters.prop('disabled', false);
+            $filters.first().focus();
+        } else {
+            $filters.val('').prop('disabled', true);
+            $tbody.find('.no-result').remove();
+            $tbody.find('tr').show();
+        }
+    });
+
+    $('.filterable .filters input').keyup(function(e){
+        var code = e.keyCode || e.which;
+        if (code == '9') return;
+        var $input = $(this),
+        inputContent = $input.val().toLowerCase(),
+        $panel = $input.parents('.filterable'),
+        column = $panel.find('.filters th').index($input.parents('th')),
+        $table = $panel.find('.table'),
+        $rows = $table.find('tbody tr');
+        var $filteredRows = $rows.filter(function(){
+            var value = $(this).find('td').eq(column).text().toLowerCase();
+            return value.indexOf(inputContent) === -1;
+        });
+        $table.find('tbody .no-result').remove();
+        $rows.show();
+        $filteredRows.hide();
+        if ($filteredRows.length === $rows.length) {
+            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+        }
+    });
+});
+ </script>
+
+<div id="container">
+  <div class="row">
+    <div class="col-sm-6 justify-content-center barchart">
+      <div id="container1">
+  <script>
+  anychart.onDocumentLoad(function() {
+  // create the data
+  var data = [
+          {x: 'Web Ticketing', y: 3},
+          {x: 'Appointment', y: 2},
+          {x: 'Queue Management', y: 1},
+          {x: '	Others', y: 1}
+      ];
+  var chart = anychart.bar(); // create a chart
+  chart.title('Module Stats'); // create title for the chart
+  chart.xAxis().title("Modules"); // create name for X axis
+  chart.yAxis().title("Projects Per Module"); // create name for Y axis
+  chart.height('600px');
+  chart.width('800px');
+  chart.margin('15%');
+    var series = chart.bar(data); // create bar series and pass data
+  chart.container("container1"); // reference the container Id
+  chart.draw(); // initiate drawing the bar chart
+
+});
+
+  </script>
+  </div>
+</div>
+
+<div class="col-sm-6 justify-content-center barchart">
+  <div id="container2">
+</div>
+</div>
+</div>
+</div>
+<br>
+<div style="height: 500px;"></div>
+<footer>
+  <p>powered by WAVETEC</p>
+</footer>
+
+</body>
+   </html>

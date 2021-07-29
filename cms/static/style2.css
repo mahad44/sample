@@ -1,0 +1,102 @@
+table{
+    border: 0.25px  #042737;
+    background-color: white;
+    color: #042737;
+}
+
+th,tr,td{
+    background-color: white;
+    color: #042737;
+
+    }
+    tr.selected,tr:hover.selected{
+        background-color: #164361;
+
+    }
+    label{
+        color: #164361;
+        font-weight: bolder;
+        font-size: 20px;
+    }
+    input{
+        background-color: white;
+        color: black;
+    }
+    select{
+        color: #164361;
+    }
+    th{
+        font-size: 20px;
+        padding: 5px;
+        }
+    
+    .form-control{
+        font-size: 20px;
+        width: 150px;
+        padding: 5px;
+        height: 55px;
+    }
+    
+    footer{
+        margin-left:0px;
+        position:fixed;
+        bottom: 0px;
+    }
+    
+    header{
+        background-color:#EEEEEE;
+        color: white;
+        margin: 0%;
+        height: 100px;
+        padding:25px;
+    
+    }
+   
+    .container{
+        margin: auto;
+        width: 100%;
+    }
+
+    
+    #container{
+        height: 1000px;
+
+    }
+
+    .chartcontainer{
+        height: 500px;
+        width: 100%;
+    }
+ 
+#container1,#container2{
+    height: 550px;
+}
+    body{
+        background-color:#EEEEEE;
+    }
+
+    .tablecol{
+        margin-left: 20%;
+    }
+
+    .dropdown-toggle{
+        margin-left: 92%;
+        margin-bottom: 5px;
+    }
+
+    .summary{
+        background-color: #042737;
+        color: white;
+        border-radius: 16px;
+        height: 75px;
+        padding-top: 2px;
+    }
+
+    a{
+        font-weight: lighter;
+    }
+
+    thead{
+        background-color: #164361;
+
+    }

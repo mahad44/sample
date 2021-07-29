@@ -1,0 +1,101 @@
+{% load static %}
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'style.css' %}">
+
+   </head>
+<body>
+   <header><h1 style="text-align:center;">Client Management System</h1> </header>
+   
+   
+   <nav style="margin:0%;" class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          
+          
+        </ul>
+      </div>
+   </nav>
+   
+   <form action="{% url 'form' %}" method="post" enctype="multipart/form-data">
+     <div class="container justify-content-center">
+       <div class="row">
+        <div class="col-sm-12 justify-content-center">
+      <div class="form-group">
+        <label for="InputName">Project Name</label>
+         <input name="projectname" type="text" class="form-control" id="InputName" aria-describedby="emailHelp" placeholder="Enter Project name">
+       </div>
+       <div class="form-group">
+         <label for="InputName">Wavetec representative Name</label>
+         <input name="name" type="text" class="form-control" id="InputName" aria-describedby="emailHelp" placeholder="Enter representative name">
+       </div>
+         <label for="InputEmail1">Wavetec representative email</label>
+         <input name="email" type="text" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <div class="form-group">
+        <label for="InputNumber" name="sod">Project SOD number</label>
+        <input name="sod" type="number" class="form-control" id="InputNumber" placeholder=" Enter SOD number">
+      </div>
+      <div class="form-group">
+      <label for="region1" >Select Region <br></label>
+      <br>
+      <select class="custom-select" name="region">
+         <option class="form-control" selected disabled="true">Regions</option>
+         <option  value="North America">North America</option>
+         <option   value="South America">South America</option>
+         <option  value="Europe">Europe</option>
+         <option   value="Middle East">Middle East</option>
+         <option   value="Africa">Africa</option>
+         <option   value="Asia">Asia</option>
+       </select>
+      </div>
+       <div class="form-group">
+        <label for="InputStartDate">Starting Date</label>
+        <input name="startdate" type="date" class="form-control" id="InputStartDate" >
+      </div>
+      <div class="form-group">
+        <label for="InputEndDate">Ending Date</label>
+        <input name="enddate" type="date" class="form-control" id="InputEndDate" >
+      </div>
+      <label for="InputEndDate">Enter Cost</label>
+        <input name="cost" type="number" class="form-control" id="InputCost" >
+      </div>
+      <div class="form-check">
+        <label >Select Modules: </label>
+        
+      <label class="radio-inline"><input  type="checkbox" name="first" value="Web Ticketing"> Web Ticketing</label>
+
+      <label class="radio-inline"> <input  type="checkbox" name="second" value="Appointment"> Appointment </label>
+
+      <label class="radio-inline"><input  type="checkbox" name="third" value="Watsapp"> Watsapp </label>
+
+        <br>
+      <button  type="submit" onclick="myFunction()" class="btn btn-primary" data-toggle="popover" title="Popover title" data-content="Form has been submitted">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
+
+
+
+   <footer>
+      <p>powered by WAVETEC</p>
+   </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+  function myFunction() {
+    alert("Form has been submitted!");
+  }
+  </script>
+</body>
+</html>
