@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style4.css' %}">
+</head>
+<body>
+    <div class="container" style="width:70%;height:80%;margin-top: 4%;">
+        <div class="row justify-content-center">
+         <img id="logo" style="margin-bottom: 2%;" src="{% static 'imgs/logo.png' %}" alt="">
+        </div>
+        <form action="{% url 'form' %}" method="POST" enctype="multipart/form-data">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <input name="projectname" type="text" id="userinput1" placeholder="Project Name">
+                </div>
+                <div class="col-sm-6">
+                    <input name="sod" type="text" id="userinput1" placeholder="Project SOD Number">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <input name="name" type="text" id="userinput1" placeholder="Wavetec Reperesenative Name">
+                </div>
+                <div class="col-sm-6">
+                    <input name="email" type="text" id="userinput1" placeholder="Wavetec Reperesenative Email">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-sm-6">
+                    <select id="userinput1" class="custom-select" name="region" style="width:450px; font-size: 23px;">
+                       <option class="form-control" selected disabled="true">Regions</option>
+                       <option  value="North America">North America</option>
+                       <option   value="South America">South America</option>
+                       <option  value="Europe">Europe</option>
+                       <option   value="Middle East">Middle East</option>
+                       <option   value="Africa">Africa</option>
+                       <option   value="Asia">Asia</option>
+                     </select>
+                    </div>
+                <div class="col-sm-6">
+                    <input name="cost" type="text" id="userinput1" placeholder="Cost">
+                </div>               
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <input name="startdate" type="text" id="userinput1" placeholder="Starting Date (mm/dd/yy)" onfocus="(this.type='date')">
+                </div>
+                <div class="col-sm-6">
+                    <input name="enddate" type="text" id="userinput1" placeholder="Ending Date (mm/dd/yy)" onfocus="(this.type='date')">
+                </div>
+            </div>
+        <div class="row justify-content-center" style="font-family: 'Montserrat';font-weight: 500;color: #042737;">
+Select Module:
+        </div>
+        <div class="row justify-content-center" >
+            <div id="opt" class="col-sm-3">
+                <input type="checkbox" name="first"  style="width: 6%; margin-right: 3%;" value="Web Ticketing">Web Ticketing
+            </div>
+            <div   class="col-sm-3" id="opt">
+                <input type="checkbox" name="second" style="width: 6%; margin-right: 3%;" value="Appointment">Appointment
+            </div>
+            <div   class="col-sm-3" id="opt">
+                <input type="checkbox" name="third" style="width: 6%; margin-right: 3%;" value="Queue Management">Watsapp
+            </div>
+            <div   class="col-sm-3" id="opt">
+                <input type="checkbox" name="fourth" style="width: 6%; margin-right: 3%;" value="Others">Queue Management
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <button id="login" type="submit" style="margin-top: 2%;margin-bottom: 2%;">Submit</button>
+        </div>
+        
+
+     </form>
+ </div>
+</body>

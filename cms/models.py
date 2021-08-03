@@ -30,7 +30,9 @@ class Project(models.Model):
     webticket=models.BooleanField(null=True)
     appointment=models.BooleanField(null=True)
     watsapp=models.BooleanField(null=True)
+    queue=models.BooleanField(null=True)
     count=models.IntegerField(null=True)
+    modules=models.CharField(max_length=200,null=True)
 
     class Meta:
         db_table = "projects"

@@ -12,7 +12,6 @@ import csv
 from django.http import HttpResponse, HttpResponseNotFound
 import xlwt
 from django.core.files.storage import FileSystemStorage
-import pdfkit
 from django.template.loader import get_template
 import matplotlib
 import random
@@ -39,7 +38,10 @@ def barchart(request):
     plt.savefig('media/barchart.png')
 
 def index(request):
-    return render(request,"cms/index.html")
+    return render(request,"cms/login1.html")
+
+def entry(request):
+    return render(request,"cms/dataentry.html")
 
 def login_view(request):
     all_projects=Project.objects.all()
@@ -97,6 +99,7 @@ def mails(request):
 @csrf_exempt
 def form_view(request):
     if request.method=="POST":
+        s=""
         counter=0
         project=Project()
         project.projectname=request.POST["projectname"]
@@ -106,23 +109,31 @@ def form_view(request):
         #project.modules=request.POST["optradio"]
         if "first" in request.POST:
             project.webticket='True'
+            s="WebTicket"
             counter+=1
         if "second" in request.POST:
             project.appointment='True'
+            s=s+"\n"+"Appointment"
             counter+=1
         if "third" in request.POST:
             project.watsapp='True'
+            s=s+"\n"+"Watsapp"
+            counter+=1
+        if "fourth" in request.POST:
+            project.queue='True'
+            s=s+"\n"+"Queue Management"
             counter+=1
         project.region=request.POST.get("region")
         project.startdate=request.POST["startdate"]
         project.enddate=request.POST["enddate"]
         project.cost=request.POST["cost"]
         project.count=counter
+        project.modules=s
         project.save()
-        return render(request, "cms/confirmation.html",{
+        return render(request, "cms/confirmation1.html",{
         "project":project
         })
-    return HttpResponseRedirect(reverse("index"))
+    return HttpResponseRedirect(reverse("index1"))
 
 
 
@@ -150,17 +161,7 @@ def csv_export(request):
     projs=all_projects.values_list('projectname','sod','modules','cost','region','startdate','enddate','name','email')
     for proj in projs:
         write.writerow(proj)
-    #in progress    
-    fig = plt.figure()
-    ax = fig.add_axes([0,0,1,1])
-    ax.axis('equal')
-    langs = ['C', 'C++', 'Java', 'Python', 'PHP']
-    students = [23,17,35,29,12]
-    ax.pie(students, labels = langs,autopct='%1.2f%%')
-    plt.savefig("cms/media/output.jpg")
-    img1=mpimg.imread("cms/media/output.jpg")
-    write.writerow(img1)
-    ##
+    
     return response
 
 def excel_export(request):

@@ -1,0 +1,90 @@
+{% load static %}
+<html>
+   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{% static 'style4.css' %}">
+
+   </head>
+<body>
+  <div class="container" style="width:70%;height:80%;margin-top: 4%;">
+    <div class="row justify-content-center">
+     <img  style="height: 5%;margin-top: 2%;" src="{% static 'imgs/logo.png' %}" alt="">
+    </div>
+    <form action="{% url 'form' %}" method="POST" enctype="multipart/form-data">
+      <div class="row justify-content-center">
+          <div class="col-sm-6">
+              <input type="text" id="userinput1" placeholder="Project Name" name="projectname" aria-describedby="emailHelp">
+          </div>
+          <div class="col-sm-6">
+              <input type="number" id="userinput1" placeholder="Project SOD Number" name="sod">
+          </div>
+      </div>
+      <div class="row justify-content-center">
+          <div class="col-sm-6">
+              <input type="text" id="userinput1"name="name" aria-describedby="emailHelp" placeholder="Wavetec Reperesenative Name">
+          </div>
+          <div class="col-sm-6">
+              <input type="text" name="email" id="userinput1" placeholder="Wavetec Reperesenative Email" aria-describedby="emailHelp">
+          </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <select class="custom-select" name="region">
+              <option class="userinput1" selected disabled="true">Select Region</option>
+              <option  value="North America">North America</option>
+              <option   value="South America">South America</option>
+              <option  value="Europe">Europe</option>
+              <option   value="Middle East">Middle East</option>
+              <option   value="Africa">Africa</option>
+              <option   value="Asia">Asia</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <input type="number" name="cost" id="userinput1" placeholder="Cost">
+        </div>               
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <input type="text" name="startdate" id="userinput1" placeholder="Starting Date (mm/dd/yy)" onfocus="(this.type='date')">
+        </div>
+        <div class="col-sm-6">
+            <input type="text" name="enddate" id="userinput1" placeholder="Ending Date (mm/dd/yy)" onfocus="(this.type='date')">
+        </div>
+    </div>
+    <div class="row justify-content-center" style="font-family: 'Montserrat';font-weight: 500;color: #042737;">
+      Select Module:
+              </div>
+              <div class="row justify-content-center" >
+                  <div id="opt" class="col-sm-3">
+                      <input type="checkbox" name="option" style="width: 6%; margin-right: 3%;" value="Web Ticketing">Web Ticketing
+                  </div>
+                  <div   class="col-sm-3" id="opt">
+                      <input type="checkbox" name="option" style="width: 6%; margin-right: 3%;" value="Appointment">Appointment
+                  </div>
+                  <div   class="col-sm-3" id="opt">
+                      <input type="checkbox" name="option" style="width: 6%; margin-right: 3%;" value="Queue Management">Queue Management
+                  </div>
+                  <div   class="col-sm-3" id="opt">
+                      <input type="checkbox" name="option" style="width: 6%; margin-right: 3%;" value="Others">Others
+                  </div>
+              </div>
+      
+              <div class="row justify-content-center">
+                  <button id="login" type="submit" onclick="myFunction()" style="margin-top: 2%;margin-bottom: 2%;" data-toggle="popover" title="Popover title" data-content="Form Has Been Submitted">Submit</button>
+              </div>
+            </form>
+          </div>
+   <footer>
+      <p>powered by WAVETEC</p>
+   </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+  function myFunction() {
+    alert("Form has been submitted!");
+  }
+  </script>
+</body>
+</html>

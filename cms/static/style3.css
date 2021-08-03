@@ -1,0 +1,102 @@
+body{
+    background-color: #042737;
+font-family:"Open Sans";
+font-size:30px;
+}
+#loginpg{
+    background-image: url('/imgs/background.png');
+background-position: center;
+background-repeat: no-repeat;
+height:100%;
+
+}
+.container{
+
+    background-color: white;
+margin-top: 7%;
+width: 500px;
+height:400px;
+text-align: center;
+}
+#logo{
+width:30%;
+height: 30%;
+margin-top: 5%;
+margin-bottom: 10%;
+}
+input{
+    width:75%
+}
+#box{
+    width:4%;
+}
+::placeholder{
+    color:#042737;
+    font-size: large;
+}
+#userinput{
+    background-color:transparent;
+ outline-style: none;
+ color:#042737;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+border-bottom: 2px solid #208AAE;
+margin-bottom: 5%;
+font-size: 25px;
+}
+#userinput1{
+    background-color:transparent;
+ outline-style: none;
+ color:#042737;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+border-bottom: 2px solid #208AAE;
+margin-bottom: 5%;
+font-size:50%;
+}
+#login{
+    width: 48%;
+    border-radius: 56px;
+    border:0px;
+    
+    background-color: #208AAE;
+    color:white;
+font-family: "Montserrat";
+font-weight:500;
+}
+#login:hover{
+    background-color: #1A6D8E;
+}
+#profile{
+    width:50px;height: 50px;
+    position: absolute;
+ margin-top: 3%;   
+    right: 5%;
+}
+#summary{
+    background-color: #042737;
+width:80%;
+height: 60%;
+font-family: "Open Sans";
+font-size: 16px;
+color: white;
+}
+#summaryheading{
+    color: #7BC0F7; font-family:'Montserrat';
+    font-weight: 600;
+    font-size: 24px;
+}
+#opt{
+    font-size: 16px;
+font-weight:900px;
+color: #042737;
+}
+ .detail{
+     font-family: 'Montserrat'; font-size: 16px; color: #208AAE;
+ } 
+ .ans{
+     font-family: 'Open Sans'; color: #EEEEEE;
+ font-size: 16px;
+    }

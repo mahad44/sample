@@ -34,6 +34,8 @@
      <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
      <script src="https://code.highcharts.com/highcharts.js"></script>
      <script src="https://cdn.datatables.net/plug-ins/1.10.25/api/sum().js"></script>
+     <script src="https://code.highcharts.com/modules/exporting.src.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
    <!-- <link href="basic.css" type="text/css" rel="stylesheet" />
     <link href="visualize.css" type="text/css" rel="stylesheet" />
@@ -101,12 +103,19 @@
 <body>
     <header>
         <div class="col-xs-6">
+           
         <img src="{% static 'imgs/Logo.png' %}" style="height: 40px;" > 
-        <img src="{% static 'imgs/profile.png' %}"  style="position: absolute; right: 0px;" data-container="body" data-toggle="popover" data-placement="top" data-content="logout">
+        <img src="{% static 'imgs/profile.png' %}"  style="position: absolute; right: 0px;" data-container="body" data-toggle="popover" data-placement="top" data-content='<a
+        href="{% url 'logout' %}" id="testInside" class="btn">Logout</a>'>
     <script>
       $(function () {
-  $('[data-toggle="popover"]').popover()
+  $('[data-toggle="popover"]').popover({html:true})
+
 })        
+$('[data-toggle="popover"]').on('shown.bs.popover', function () {
+    $('#testInside').click(function(){
+    });
+})
       </script> 
 
         </div>
@@ -165,39 +174,28 @@
            
         {% for project in all_projects %}
         <tr>
-             <td rowspan="{{project.count}}">{{project.projectname}}</td>
-            <td rowspan="{{project.count}}">{{project.sod}}</td>
+             <td>{{project.projectname}}</td>
+            <td>{{project.sod}}</td>
             
+            <td>
             {% if project.webticket %}
-            <td>
-            Web Ticket {{count}}
-            </td>
+            Web Ticket 
             {% endif %}
-            
-            
-            
-            <td rowspan="{{project.count}}">{{project.cost}}</td>
-            <td rowspan="{{project.count}}">{{project.region}}</td>
-            <td rowspan="{{project.count}}">{{project.startdate}}</td>
-            <td rowspan="{{project.count}}">{{project.enddate}}</td>
-            <td rowspan="{{project.count}}">{{project.name}}</td>
-            <td rowspan="{{project.count}}">{{project.email}}</td>
-        </tr>
-        {% if project.appointment %}
-        <tr>
-            <td>
+            {% if project.appointment %}
             Appointment
-        </td> 
-        </tr>
-         {% endif %}
-
-         {% if project.watsapp %}
-         <tr>
-            <td>
-             Watsapp 
-            </td> 
-        </tr>
             {% endif %}
+            {% if project.watsapp %}
+            Watsapp
+            {% endif %}
+ 
+            
+            <td>{{project.cost}}</td>
+            <td>{{project.region}}</td>
+            <td>{{project.startdate}}</td>
+            <td>{{project.enddate}}</td>
+            <td>{{project.name}}</td>
+            <td>{{project.email}}</td>
+        
         
         
         {% endfor %}
@@ -273,8 +271,16 @@ var intVal = function ( i ) {
                 data: chartData(table),
             },
         ],
+        exporting: {
+    csv: {
+      itemDelimiter: ';'
+    }
+  }
     });
     
+    function downlaodCsv() {
+  chart.downloadCSV()
+}
     var chart2 = Highcharts.chart('cont2', {
         chart: {
             type: 'column',

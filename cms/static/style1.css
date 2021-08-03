@@ -1,0 +1,98 @@
+body{
+    background-color: #042737;
+font-family:"Open Sans";
+font-size:28px;
+}
+#logo{
+    width:30%;
+    height: 30%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    }
+.container{
+
+    background-color: white;
+margin-top: 7%;
+width: 500px;
+height:400px;
+text-align: center;
+}
+#loginpg{
+   background-image: url("{% static 'imgs/background.png' %}");
+background-position: center;
+background-repeat: no-repeat;
+height:100%;
+
+}
+
+input{
+    width:75%
+}
+#box{
+    width:4%;
+    margin-top: 6px;
+}
+#userinput{
+    background-color:transparent;
+ outline-style: none;
+ color:#042737;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+border-bottom: 2px solid #208AAE;
+margin-bottom: 5%;
+font-size: 35px;
+}
+#userinput1{
+    background-color:transparent;
+ outline-style: none;
+ color:#042737;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+border-bottom: 2px solid #208AAE;
+margin-bottom: 5%;
+font-size:35px;
+}
+::placeholder{
+    color:#042737;
+    font-size: large;
+}
+#opt{
+    font-size: 36px;
+font-weight:900px;
+color: #042737;
+}
+
+#login{
+    width: 48%;
+    border-radius: 56px;
+  font-size: 24px;
+    border:0px;
+    color:white;
+    background-color: #208AAE;
+font-family: "Montserrat";
+font-weight:500;
+}
+#login:hover{
+    background-color: #1A6D8E;
+}
+.detail{
+    font-family: 'Montserrat'; font-size: 36px; color: #208AAE;
+} 
+.ans{
+    font-family: 'Open Sans'; color: #EEEEEE;
+font-size: 36px;
+   }
+.custom-select{
+    width: 50%;
+}
+
+
+footer{
+    margin-left:0px;
+    position:fixed;
+    bottom: 0px;
+}
+
+

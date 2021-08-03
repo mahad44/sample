@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'style1.css' %}">
+
+   </head>
+<body>
+   <div class="container" style="background-color: #042737;width:75%;height: 100%;margin-top: 3%;">
+      <div class="row justify-content-center">
+       <img src="{% static 'imgs/Logo(white).png' %}" alt="Wavetec" style="width: 300px; height:70px;">   
+      </div>
+       <div class="row justify-content-center">
+   <img src="{% static 'imgs/tick.png' %}" alt="tick" style="width:60px;height:60px;margin-top: 3%;">
+</div>
+<div class="row justify-content-center">
+<h3 style="font-family: 'Montserrat';color: #208AAE; font-size: 42px;">Thank You!Your Response Has Been Recorded</h4>
+</div>
+<div class="row justify-content-center">
+   <div class="col-xs-6" style="text-align: right; padding-right: 10%;">
+   <div class="row justify-content-center"><p class="detail" >Project Name: <span class="ans">{{project.projectname}}</span></p></div> 
+   <div class="row justify-content-center"><p class="detail">Region: <span class="ans">{{project.region}}</span></p></div>  
+   <div class="row justify-content-center"><p class="detail">Representative: <span class="ans">{{project.name}}</span></p></div>
+   <div class="row justify-content-center"><p class="detail">Starting Date: <span class="ans">{{project.startdate}}</span></p></div>
+ </div>
+ <div class="col-xs-6" style="text-align: left; padding-left: 10%;">
+   <div class="row justify-content-center"><p class="detail">SOD: <span class="ans">{{project.sod}}</span></p></div>
+   <div class="row justify-content-center"><p class="detail">Cost: <span class="ans">{{project.cost}}</span></p></div>
+   <div class="row justify-content-center"><p class="detail">Email: <span class="ans">{{project.email}}</span></p></div>
+   <div class="row justify-content-center"><p class="detail">Ending Date: <span class="ans">{{project.enddate}}</span></p></div>
+ </div>
+ </div>
+<p class="detail">Modules:</p>
+    <p class="ans">{{project.modules}}</p>
+    <div class="row justify-content-center">
+      <button id="login" style="margin-top: 2%;width: 200px;"><a style="color:white;font-family: 'Montserrat';font-weight:500;" href="{% url 'index' %}">Back</a></button>
+  </div>
+      </div>   
+<footer>
+    <p style="color: white;">powered by WAVETEC</p>
+ </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</script>
+</body>
+</html>
